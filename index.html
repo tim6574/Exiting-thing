@@ -3,32 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You thought :></title>
+    <title>Free Cryptocurrency Masterclass</title>
     <style>
         body {
-            margin: 0;
-            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0e11;
+            color: #eaecef;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            color: white;
-            font-family: Arial, sans-serif;
+            margin: 0;
         }
-        iframe {
-            width: 80vw;
-            height: 45vw;
-            max-width: 800px;
-            max-height: 450px;
+        .container {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            background-color: #181a20;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            max-width: 450px;
+        }
+        h1 {
+            color: #f3ba2f; /* Crypto gold */
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 75px;
+        }
+        p {
+            color: #848e9c;
+            margin-bottom: 25px;
+        }
+        .crypto-btn {
+            background-color: #f3ba2f;
+            color: #000;
             border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .crypto-btn:hover {
+            background-color: #fcd435;
+        }
+        /* Hidden video container that expands on click */
+        #video-wrapper {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 640px;
+            aspect-ratio: 16 / 9;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
-    <iframe src="https://youtube.com" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <h1>Gotcha! </h1>
+<div class="container" id="main-card">
+    <h1>🚀 Crypto Alpha Course</h1>
+    <p>Click below to unlock our exclusive, institutional-grade 2026 Bitcoin and Ethereum price action masterclass.</p>
+    <button class="crypto-btn" id="start-btn" onclick="startRickRoll()">Start Free Lesson</button>
+</div>
+<div id="get">
+    <h1>GET RICKROLLED!!!!!</h1></div>
+<!-- Video element handles both video and sound -->
+<div id="video-wrapper">
+    <video id="rickroll-video" src="videoplayback (1).mp4" controls></video>
+</div>
+
+<script>
+    
+    const Get = document.getElementById('get');
+    Get.style.display = 'none';
+function startRickRoll() {
+    const mainCard = document.getElementById('main-card');
+    const videoWrapper = document.getElementById('video-wrapper');
+    const Get = document.getElementById('get');
+    const video = document.getElementById('rickroll-video');
+    const backupAudio = document.getElementById('backup-audio');
+
+    // 1. Hide the bait text card
+    mainCard.style.display = 'none';
+    
+    // 2. Reveal the video element
+    videoWrapper.style.display = 'block';
+    Get.style.display = 'block';
+    
+    // 3. Play the video/audio
+    video.play().catch(error => {
+        console.log("Autoplay blocked or file missing. Trying backup audio fallback...", error);
+        // Fallback in case video fails but audio works
+        backupAudio.play();
+    });
+}
+</script>
 
 </body>
 </html>
